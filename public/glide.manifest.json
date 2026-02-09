@@ -1,0 +1,521 @@
+{
+  "$schema": "https://glide.dev/manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "app": {
+    "name": "Green Leaf Cooperative - Agricultural Supply Chain ERP",
+    "version": "1.0.0",
+    "description": "Green Leaf Cooperative - Agricultural Supply Chain ERP - Glide manifest"
+  },
+  "navigation": {
+    "dashboard": {
+      "path": "/",
+      "description": "Overview of cooperative performance and metrics",
+      "selector": "a[href='/']"
+    },
+    "farmers": {
+      "path": "/farmers",
+      "description": "Directory of registered farmers and producers",
+      "selector": "a[href='/farmers']"
+    },
+    "inventory": {
+      "path": "/inventory",
+      "description": "Log and track incoming raw material deliveries",
+      "selector": "a[href='/inventory']"
+    },
+    "processing": {
+      "path": "/processing",
+      "description": "Manage batch processing and quality control",
+      "selector": "a[href='/processing']"
+    },
+    "buyers": {
+      "path": "/buyers",
+      "description": "Manage wholesale buyers and corporate clients",
+      "selector": "a[href='/buyers']"
+    },
+    "sales": {
+      "path": "/sales",
+      "description": "Track sales orders and distribution",
+      "selector": "a[href='/sales']"
+    }
+  },
+  "actions": {
+    "add-farmer": {
+      "description": "Register a new farmer or producer into the cooperative",
+      "keywords": [
+        "add",
+        "new",
+        "create",
+        "farmer",
+        "farmers",
+        "update",
+        "edit",
+        "delete",
+        "remove",
+        "register farmer",
+        "new producer",
+        "onboard farmer",
+        "add member",
+        "create farmer profile"
+      ],
+      "route": "farmers",
+      "trigger": {
+        "selector": "button.btn-primary",
+        "type": "click"
+      },
+      "form": {
+        "full_name": {
+          "selector": "label:Full Name",
+          "type": "text",
+          "required": true,
+          "semantic": [
+            "name",
+            "called",
+            "named",
+            "full",
+            "farmer name",
+            "legal name",
+            "full name",
+            "producer"
+          ]
+        },
+        "phone_number": {
+          "selector": "label:Phone Number",
+          "type": "tel",
+          "required": true,
+          "semantic": [
+            "phone",
+            "mobile",
+            "contact",
+            "number",
+            "contact number",
+            "cell",
+            "telephone"
+          ]
+        },
+        "location": {
+          "selector": "label:Location",
+          "type": "text",
+          "required": true,
+          "semantic": [
+            "location",
+            "farm address",
+            "region",
+            "area",
+            "district"
+          ]
+        },
+        "status": {
+          "selector": "label:Status",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "status",
+            "membership status",
+            "account state",
+            "active"
+          ],
+          "options": [
+            "Active",
+            "Inactive"
+          ]
+        },
+        "output_preference": {
+          "selector": "label:Output Preference",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "output",
+            "preference",
+            "sales preference",
+            "collection method",
+            "distribution type"
+          ],
+          "options": [
+            "Cooperative Sells",
+            "Self Collect"
+          ]
+        }
+      },
+      "submit": {
+        "selector": "button[type=\"submit\"]"
+      }
+    },
+    "record-delivery": {
+      "description": "Log a new delivery of raw materials from a farmer",
+      "keywords": [
+        "record",
+        "add",
+        "log",
+        "delivery",
+        "inventory",
+        "farmer",
+        "member",
+        "update",
+        "edit",
+        "delete",
+        "remove",
+        "record delivery",
+        "log harvest",
+        "intake inventory",
+        "new delivery",
+        "receive crops"
+      ],
+      "route": "inventory",
+      "trigger": {
+        "selector": "button.btn-primary",
+        "type": "click"
+      },
+      "form": {
+        "farmer": {
+          "selector": "label:Farmer",
+          "type": "select",
+          "required": true,
+          "semantic": [
+            "farmer",
+            "source farmer",
+            "supplier",
+            "member name"
+          ],
+          "options": [
+            "James Mwangi (F001)",
+            "Sarah Wanjiku (F002)",
+            "Peter Omondi (F003)",
+            "Grace Njeri (F004)",
+            "Jane Wambui (FMLF5H1WBBKC1E)",
+            "John Mukiliam (FMLF5IU9GRWWKW)"
+          ]
+        },
+        "raw_weight_kg": {
+          "selector": "label:Raw Weight (kg)",
+          "type": "number",
+          "required": true,
+          "semantic": [
+            "weight",
+            "kg",
+            "kilos",
+            "raw",
+            "(kg)",
+            "kilograms",
+            "mass",
+            "gross weight",
+            "quantity"
+          ]
+        },
+        "grade": {
+          "selector": "label:Grade",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "grade",
+            "quality",
+            "quality grade",
+            "classification",
+            "rating"
+          ],
+          "options": [
+            "Grade A - Premium",
+            "Grade B - Standard",
+            "Grade C - Basic"
+          ]
+        },
+        "moisture_content": {
+          "selector": "label:Moisture Content (%)",
+          "type": "number",
+          "required": true,
+          "semantic": [
+            "moisture",
+            "content",
+            "(%)",
+            "humidity",
+            "water content",
+            "dryness"
+          ]
+        },
+        "price_per_kg_kes": {
+          "selector": "label:Price per kg (KES)",
+          "type": "number",
+          "required": true,
+          "semantic": [
+            "weight",
+            "kg",
+            "kilos",
+            "price",
+            "cost",
+            "rate",
+            "per",
+            "(kes)",
+            "unit price",
+            "cost per kg",
+            "buying price"
+          ]
+        },
+        "status": {
+          "selector": "label:Status",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "status",
+            "delivery status",
+            "inventory state"
+          ],
+          "options": [
+            "Pending",
+            "Processing",
+            "Processed",
+            "Sold"
+          ]
+        },
+        "notes_optional": {
+          "selector": "label:Notes (Optional)",
+          "type": "textarea",
+          "required": false,
+          "semantic": [
+            "notes",
+            "comment",
+            "description",
+            "(optional)",
+            "comments",
+            "remarks",
+            "observations",
+            "details"
+          ]
+        }
+      },
+      "submit": {
+        "selector": "button[type=\"submit\"]"
+      }
+    },
+    "process-batch": {
+      "description": "Initiate processing for a specific batch of raw materials",
+      "keywords": [
+        "process",
+        "processing",
+        "manufacture",
+        "batch",
+        "delivery",
+        "incoming",
+        "record",
+        "update",
+        "edit",
+        "delete",
+        "remove",
+        "start processing",
+        "milling batch",
+        "refine inventory",
+        "production run",
+        "process harvest"
+      ],
+      "route": "processing",
+      "trigger": {
+        "selector": "button.btn-primary",
+        "type": "click"
+      },
+      "form": {
+        "select_incoming_batch": {
+          "selector": "label:Select Incoming Batch",
+          "type": "select",
+          "required": true,
+          "semantic": [
+            "select",
+            "incoming",
+            "batch",
+            "source batch",
+            "input material",
+            "delivery ID"
+          ],
+          "options": [
+            "IB002 - Sarah Wanjiku (180 kg, Grade B)",
+            "IB003 - Peter Omondi (320 kg, Grade A)",
+            "IB004 - Grace Njeri (150 kg, Grade C)"
+          ]
+        },
+        "output_weight_kg": {
+          "selector": "label:Output Weight (kg)",
+          "type": "number",
+          "required": true,
+          "semantic": [
+            "weight",
+            "kg",
+            "kilos",
+            "output",
+            "(kg)",
+            "final weight",
+            "processed weight",
+            "yield"
+          ]
+        },
+        "grade": {
+          "selector": "label:Grade",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "grade",
+            "quality",
+            "output grade",
+            "final quality"
+          ],
+          "options": [
+            "Grade A - Premium",
+            "Grade B - Standard",
+            "Grade C - Basic"
+          ]
+        },
+        "quality_score": {
+          "selector": "label:Quality Score (%)",
+          "type": "number",
+          "required": true,
+          "semantic": [
+            "quality",
+            "score",
+            "(%)",
+            "purity",
+            "quality rating",
+            "test score"
+          ]
+        },
+        "packaging_type": {
+          "selector": "label:Packaging Type",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "packaging",
+            "type",
+            "bag size",
+            "container type"
+          ],
+          "options": [
+            "25kg bags",
+            "50kg bags",
+            "Bulk containers"
+          ]
+        },
+        "status": {
+          "selector": "label:Status",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "status",
+            "batch status",
+            "availability"
+          ],
+          "options": [
+            "Available",
+            "Reserved",
+            "Sold"
+          ]
+        }
+      },
+      "submit": {
+        "selector": "button[type=\"submit\"]"
+      }
+    },
+    "add-buyer": {
+      "description": "Onboard a new wholesale buyer or corporate client",
+      "keywords": [
+        "add",
+        "new",
+        "create",
+        "buyer",
+        "buyers",
+        "update",
+        "edit",
+        "delete",
+        "remove",
+        "add buyer",
+        "new customer",
+        "register client",
+        "wholesale partner",
+        "onboard buyer"
+      ],
+      "route": "buyers",
+      "trigger": {
+        "selector": "button.btn-primary",
+        "type": "click"
+      },
+      "form": {
+        "company_name": {
+          "selector": "label:Company Name",
+          "type": "text",
+          "required": true,
+          "semantic": [
+            "name",
+            "called",
+            "named",
+            "company",
+            "organization",
+            "business name",
+            "buyer name",
+            "firm"
+          ]
+        },
+        "contact_person": {
+          "selector": "label:Contact Person",
+          "type": "text",
+          "required": true,
+          "semantic": [
+            "contact",
+            "person",
+            "representative",
+            "agent",
+            "point of contact"
+          ]
+        },
+        "email": {
+          "selector": "label:Email",
+          "type": "email",
+          "required": true,
+          "semantic": [
+            "email",
+            "mail",
+            "email address",
+            "work email",
+            "contact email"
+          ]
+        },
+        "phone": {
+          "selector": "label:Phone",
+          "type": "tel",
+          "required": true,
+          "semantic": [
+            "phone",
+            "mobile",
+            "contact",
+            "number",
+            "phone number",
+            "office phone",
+            "business contact"
+          ]
+        },
+        "status": {
+          "selector": "label:Status",
+          "type": "select",
+          "required": false,
+          "semantic": [
+            "status",
+            "account status",
+            "buyer state"
+          ],
+          "options": [
+            "Active",
+            "Inactive"
+          ]
+        },
+        "address": {
+          "selector": "label:Address",
+          "type": "textarea",
+          "required": true,
+          "semantic": [
+            "address",
+            "location",
+            "billing address",
+            "shipping location",
+            "headquarters"
+          ]
+        }
+      },
+      "submit": {
+        "selector": "button[type=\"submit\"]"
+      }
+    }
+  }
+}
