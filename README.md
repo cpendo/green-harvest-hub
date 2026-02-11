@@ -47,7 +47,3 @@ Open [http://localhost:5173](http://localhost:5173).
 - React Hook Form + Zod
 - LocalStorage persistence
 - Vite
-
-## License
-
-MIT
